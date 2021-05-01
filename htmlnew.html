@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>JSON</title>
+    <style>
+       div {
+  color: black;
+  text-align: center;
+  line-height: 2;
+}
+    </style>
+</head>
+<body>
+    <div id="mainContainer"></div>
+    <script>
+        fetch('quiz.json')
+        .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+          
+          
+            function appendData(data) {
+var mainContainer = document.getElementById("quiz");
+
+    for (q in data.quiz) {
+console.log(data.quiz[q]);
+document.writeln( `Question 1: ` + data.quiz[q].question + `Options: ` + data.quiz[q].options);
+
+}
+
+}
+
+
+    </script>
+</body>
+</html>
